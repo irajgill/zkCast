@@ -10,15 +10,14 @@ zkCast is a zero-knowledge (ZK) voting system implementation in Circom. This pro
 - **Node.js** – JavaScript runtime required by `snarkjs` scripts.
 - **Rust & Cargo** – Needed only when compiling Circom from source instead of using pre-built binaries.
 
-## Build and Run
+Build and Run
 `git clone https://github.com/irajgill/zkCast.git`
+
 `cd zkCast/circom`
 
-Install Circom
+Install Circom: Follow Circom installation instructions.
 
-Follow Circom installation instructions.
-
-Install snarkjs
+Install snarkjs:
 `npm install -g snarkjs`
 
 ## How It Works
