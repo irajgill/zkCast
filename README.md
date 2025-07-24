@@ -67,13 +67,17 @@ The main circuit in `zkCast` enables anonymous voting using zero-knowledge (ZK) 
 2. Run Trusted Setup(Powers of Tau Caremony):
 
 `snarkjs powersoftau new bn128 12 pot12_0000.ptau -v`
+
 `snarkjs powersoftau contribute pot12_0000.ptau pot12_0001.ptau --name="First contribution" -v`
+
 `snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau -v`
 
 3. Generate Proving and Verification Keys:
 
 `snarkjs groth16 setup zkCast.r1cs pot12_final.ptau circuit_0000.zkey`
+
 `snarkjs zkey contribute circuit_0000.zkey circuit_final.zkey --name="Second contribution" -v`
+
 `snarkjs zkey export verificationkey circuit_final.zkey verification_key.json`
 
 4. Prepare Inputs:
@@ -83,6 +87,7 @@ Create an `input.json` file with the appropriate values for `candidates`, `voter
 5. Generate Witness and Proof:
 
 `node zkCast_js/generate_witness.js zkCast_js/zkCast.wasm input.json witness.wtns`
+
 `snarkjs groth16 prove circuit_final.zkey witness.wtns proof.json public.json`
 
 6. Verify Proof:
